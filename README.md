@@ -1,1 +1,1 @@
-// Builder.io Take-Home Coding Challenge 
+Builder.io Take-Home Coding Challenge 
