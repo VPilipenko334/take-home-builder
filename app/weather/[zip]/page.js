@@ -14,6 +14,7 @@ export default async function WeatherPage({ params }) {
         params: {
           zip: `${zip},us`,
           appid: process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY,
+          units: 'imperial',
         },
       }
     );
