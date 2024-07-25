@@ -5,6 +5,7 @@ export default async function Home({ searchParams }) {
 
   let weather = null;
   let error = null;
+  let city = '';
 
   if (zip) {
     try {
@@ -19,12 +20,10 @@ export default async function Home({ searchParams }) {
         }
       );
       weather = response.data;
-      console.log(weather);
-
+      city = weather.city?.name;
     } catch (err) {
       console.error("Error fetching weather data:", err);
       error = "Please check your Zipcode and try again.";
-      console.log("this did not work");
     } 
   }
 
@@ -35,7 +34,7 @@ export default async function Home({ searchParams }) {
       {weather && (
         <div>
           <h1 className="text-xl font-semibold mb-4">
-            Weather data for the zip code: {weather.city?.name }
+            Weather data for the zip code: {city}
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {weather.list.map((data, index) => (

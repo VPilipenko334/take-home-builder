@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 export default async function WeatherPage({ params }) {
@@ -6,6 +5,7 @@ export default async function WeatherPage({ params }) {
 
   let weather = null;
   let error = null;
+  let city = '';
 
   try {
     const response = await axios.get(
@@ -14,30 +14,25 @@ export default async function WeatherPage({ params }) {
         params: {
           zip: `${zip},us`,
           appid: process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY,
-          units: 'imperial',
+          units: "imperial",
         },
       }
     );
-
-    if (response.status === 200) {
-      weather = response.data;
-      console.log(weather)
-    } else {
-      error = `Error: Received status code ${response.status}`;
-    }
+    weather = response.data;
+    city = weather.city?.name;
   } catch (err) {
     console.error("Error fetching weather data:", err.message);
-    error = "Error fetching weather data.";
+    error = "Please check your Zipcode and try again.";
   }
 
   return (
     <div>
-      <h2>Weather App</h2>
+      <h1>Weather App</h1>
       {error && <p>{error}</p>}
       {weather && (
         <div>
           <h1 className="text-xl font-semibold mb-4">
-            Weather data for the zip code: {weather.city?.name}
+            Weather data for the zip code: {city}
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {weather.list.map((data, index) => (
@@ -63,5 +58,3 @@ export default async function WeatherPage({ params }) {
     </div>
   );
 }
-
-
