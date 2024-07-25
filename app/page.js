@@ -1,4 +1,5 @@
 import axios from "axios";
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
 
 export default async function Home({ searchParams }) {
   const zip = searchParams?.zip 
