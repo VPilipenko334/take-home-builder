@@ -45,7 +45,7 @@ export default async function WeatherPage({ params }) {
         {weather && (
           <div className="mt-6">
             <h2 className="text-xl font-semibold text-center mb-4 text-gray-800">
-              Weather data for the zip code: {city}
+              Weather Data For: {city}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {weather.list.map((data, index) => (
