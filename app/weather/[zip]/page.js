@@ -18,7 +18,7 @@ export default async function WeatherPage({ params }) {
           appid: process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY,
           units: "imperial",
         },
-      }
+      },
     );
     weather = response.data;
     city = weather.city?.name;
@@ -37,7 +37,7 @@ export default async function WeatherPage({ params }) {
         <div className="flex justify-center mb-4">
           <Link
             href="/"
-            className="bg-baby-pink text-white py-2 px-4 rounded hover:bg-pink-600"
+            className="bg-baby-green text-white py-2 px-4 rounded hover:bg-green-600"
           >
             Click here to go back
           </Link>
