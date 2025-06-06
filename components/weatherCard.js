@@ -17,6 +17,7 @@ export default function WeatherCard({ data }) {
       imgSrc = "/overcast.png";
     }
 
+    
     return imgSrc;
   };
 
